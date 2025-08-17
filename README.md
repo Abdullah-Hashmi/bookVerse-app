@@ -27,7 +27,7 @@ This is a true **full‑stack** project—not just a pretty UI.
 
 ## 🧠 What You’ll Learn
 
-- ⚙️ Build a REST API with **Node.js**, **Express** & **MongoDB**
+- ⚙️ Build a REST API with **Node.js**, **Express**, **TypeScript** & **MongoDB**
 - 🔑 Implement stateless auth using **JSON Web Tokens (JWT)**
 - 🔄 Add performant **infinite loading** with pagination cursors
 - 🖼️ Handle image uploads the easy way (base64 → Cloudinary)
@@ -59,7 +59,8 @@ API_URL=<YOUR_DEPLOYED_API_URL>
 ```bash
 cd backend
 npm install
-npm run dev
+npm run dev        # For development (TypeScript with hot reload)
+npm run build      # To compile TypeScript to JavaScript (dist/ folder)
 
 ```
 

@@ -1,15 +1,17 @@
-import express from "express";
-import User from "../models/User.js";
+import express, { Request, Response } from "express";
+import User, { IUser } from "../models/User.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
-const generateToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "15d" });
+const generateToken = (userId: string): string => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET as string, {
+    expiresIn: "15d",
+  });
 };
 
 // TEMP: GET routes so you can test in the browser
-router.post("/register", async (req, res) => {
+router.post("/register", async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
@@ -38,7 +40,7 @@ router.post("/register", async (req, res) => {
     const user = new User({ username, email, password, profileImage });
     await user.save();
     // generate token
-    const Token = generateToken(user._id);
+    const Token = generateToken((user as IUser)._id.toString());
 
     res.status(201).json({
       message: "User created successfully",
@@ -56,7 +58,7 @@ router.post("/register", async (req, res) => {
   }
 });
 // login route
-router.post("/login", async (req, res) => {
+router.post("/login", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -73,7 +75,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
     // generate token
-    const token = generateToken(user._id);
+    const token = generateToken((user as IUser)._id.toString());
     res.status(200).json({
       message: "Login successful",
       token: token,

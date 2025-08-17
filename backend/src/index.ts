@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import "dotenv/config";
 import authRoutes from "./routes/authRoutes.js";
 import bookRoutes from "./routes/bookRoutes.js";
@@ -17,6 +17,6 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use((err, req, res, next) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ message: err.message });
 });

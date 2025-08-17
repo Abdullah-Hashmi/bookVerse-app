@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6", // Use ES6 for compatibility with Node.js
+    "module": "esnext", // Match your ES module usage
+    "moduleResolution": "node", // Resolve Node.js modules
+    "esModuleInterop": true, // Enable interop between CommonJS and ES Modules
+    "strict": true, // Enable strict type-checking
+    "outDir": "./dist", // Output compiled JS files to 'dist'
+    "rootDir": "./src", // Source files are in 'src'
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true // Ensure consistent file naming
+  },
+  "include": ["src/**/*"], // Include all files in 'src' and subdirectories
+  "exclude": ["node_modules"] // Exclude node_modules
+}

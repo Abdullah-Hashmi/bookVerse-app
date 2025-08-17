@@ -1,4 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
+
+export interface IBook extends Document {
+  title: string;
+  caption: string;
+  image: string;
+  rating: number;
+  user: mongoose.Types.ObjectId;
+}
 
 const bookSchema = new mongoose.Schema(
   {
@@ -29,7 +37,6 @@ const bookSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
-const Book = mongoose.model("Book", bookSchema);
+const Book = mongoose.model<IBook>("Book", bookSchema);
 
 export default Book;

@@ -1,4 +1,4 @@
-404: Not Found# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -141,7 +141,8 @@ vite.config.ts.timestamp-*
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon[]
+Icon[
+]
 
 # Thumbnails
 ._*
@@ -165,3 +166,7 @@ Temporary Items
 # Extra ignores
 **/node_modules/
 **/.env
+
+# TypeScript / Backend specific
+backend/dist/
+backend/*.tsbuildinfo
