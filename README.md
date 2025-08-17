@@ -1,4 +1,4 @@
-<h1 align="center">📚 BookWorm – Full‑Stack React Native App 🚀</h1>
+<h1 align="center">📚 BookVerse – Full‑Stack React Native App 🚀</h1>
 
 ![Demo App](/mobile/assets/images/screenshot-for-readme.png)
 
